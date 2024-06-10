@@ -1,7 +1,7 @@
 import * as React from "react";
-import "../../assets/css/login.css";
+import "../assets/css/page_acceuil.css";
 
-export default function Login() {
+export default function PageAcceuil() {
   return (
     <div className="container">
       <div className="product-of-the-day">

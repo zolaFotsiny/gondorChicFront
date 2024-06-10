@@ -1,4 +1,4 @@
-import Login from "../pages/users/login";
+import PageAcceuil from "../vue/PageAcceuil";
 
 // ==============================|| MAIN ROUTING ||============================== //
 
@@ -7,7 +7,7 @@ const User = {
   children: [
     {
       path: "/",
-      element: <Login />,
+      element: <PageAcceuil />,
     },
   ],
 };
