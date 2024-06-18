@@ -1,8 +1,17 @@
 import * as React from "react";
 import "../assets/css/styles.css";
-import Caddy from '../assets/images/caddy.jpg';
+import Caddy from "../assets/images/caddy.jpg";
+import { useEffect, useState } from "react";
+import { rechercherProduitDuJour } from "../service/product/product-svc";
 
 export default function PageAcceuilClient() {
+  const [produitsDuJour, setProduitsDuJour] = useState(null);
+  useEffect(() => {
+    rechercherProduitDuJour().then((data) => {
+      console.log(data);
+      setProduitsDuJour(data);
+    });
+  }, []);
   return (
     <div className="div">
       <div className="div-2">
@@ -17,24 +26,29 @@ export default function PageAcceuilClient() {
       <div className="div-9">
         <div className="div-10">Bonjour, Mr Client</div>
         <div className="div-11">
-          Le produit du jour est le casque du roi de gondor prix de 100§.
+          Le produit du jour est {produitsDuJour?.libelle} (
+          {produitsDuJour?.reference}) au prix de {produitsDuJour?.prix}$.
         </div>
         <div className="div-12">
           <div className="div-13">
             <div className="column">
               <div className="div-14">
-                <img className="img" src="Casque-du-roi-du-Seigneur-des-Anneaux-Elendil.png" alt="image du produit du jours"/>
+                <img
+                  className="img"
+                  src="Casque-du-roi-du-Seigneur-des-Anneaux-Elendil.png"
+                  alt="image du produit du jours"
+                />
                 <div className="div-15">
                   <div className="div-16">
                     <div className="div-17">
                       <div className="div-18">Commande</div>
-                      <input type="text" className="div-19"/>
+                      <input type="text" className="div-19" />
                     </div>
                     <div className="div-20">
                       <div className="div-21">Stock</div>
                       <div className="div-22">100</div>
                     </div>
-                    <img src={Caddy} alt="Caddy" className="img-2-0"/>
+                    <img src={Caddy} alt="Caddy" className="img-2-0" />
                   </div>
                 </div>
               </div>
@@ -53,7 +67,6 @@ export default function PageAcceuilClient() {
       </div>
 
       <div className="partie2">
-        
         <div className="ivelany">
           <div className="ivelany-2">
             <div className="ivelany-3">
@@ -78,7 +91,7 @@ export default function PageAcceuilClient() {
                             <div className="ivelany-14">100</div>
                           </div>
                         </div>
-                        <img src={Caddy} alt="Caddy" className="img-2"/>
+                        <img src={Caddy} alt="Caddy" className="img-2" />
                       </div>
                     </div>
                     <div className="ivelany-15">Prix du produit: 20§</div>
@@ -106,7 +119,7 @@ export default function PageAcceuilClient() {
                             <div className="ivelany-14">100</div>
                           </div>
                         </div>
-                        <img src={Caddy} alt="Caddy" className="img-2"/>
+                        <img src={Caddy} alt="Caddy" className="img-2" />
                       </div>
                     </div>
                     <div className="ivelany-15">Prix du produit: 20§</div>
@@ -134,7 +147,7 @@ export default function PageAcceuilClient() {
                             <div className="ivelany-14">100</div>
                           </div>
                         </div>
-                        <img src={Caddy} alt="Caddy" className="img-2"/>
+                        <img src={Caddy} alt="Caddy" className="img-2" />
                       </div>
                     </div>
                     <div className="ivelany-15">Prix du produit: 20§</div>
@@ -144,7 +157,6 @@ export default function PageAcceuilClient() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

@@ -1,13 +1,22 @@
 import * as React from "react";
 import "../assets/css/page_acceuil.css";
+import { useEffect, useState } from "react";
+import { rechercherProduitDuJour } from "../service/product/product-svc";
 
 export default function PageAcceuil() {
+  const [produitsDuJour, setProduitsDuJour] = useState(null);
+  useEffect(() => {
+    rechercherProduitDuJour().then((data) => {
+      setProduitsDuJour(data);
+    });
+  }, []);
+
   return (
     <div className="body0">
       <div className="container">
         <div className="product-of-the-day">
-          <h1>Gondor Chic</h1>
-          <p>Le produit du jour est le "pantalon zouk" au prix de 50€</p>
+          <h1>{produitsDuJour?.reference}</h1>
+          <p>Le produit du jour est {produitsDuJour?.libelle}</p>
         </div>
         <div className="login-box">
           <form>
