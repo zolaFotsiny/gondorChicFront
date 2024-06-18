@@ -51,6 +51,101 @@ export default function PageAcceuilClient() {
           </div>
         </div>
       </div>
+
+      <div className="partie2">
+        
+        <div className="ivelany">
+          <div className="ivelany-2">
+            <div className="ivelany-3">
+              <div className="column0">
+                <div className="ivelany-4">
+                  <div className="ivelany-5">
+                    <div className="ivelany-6">Produit 1</div>
+                    <img
+                      loading="lazy"
+                      src="Casque-du-roi-du-Seigneur-des-Anneaux-Elendil.png"
+                      className="img"
+                    />
+                    <div className="ivelany-7">
+                      <div className="ivelany-8">
+                        <div className="ivelany-9">
+                          <div className="ivelany-10">
+                            <div className="ivelany-11">Commande</div>
+                            <div className="ivelany-12">Stock</div>
+                          </div>
+                          <div className="ivelanStock">
+                            <input type="text" className="ivelany-13" />
+                            <div className="ivelany-14">100</div>
+                          </div>
+                        </div>
+                        <img src={Caddy} alt="Caddy" className="img-2"/>
+                      </div>
+                    </div>
+                    <div className="ivelany-15">Prix du produit: 20§</div>
+                  </div>
+                </div>
+              </div>
+              <div className="column0">
+                <div className="ivelany-4">
+                  <div className="ivelany-5">
+                    <div className="ivelany-6">Produit 2</div>
+                    <img
+                      loading="lazy"
+                      src="Casque-du-roi-du-Seigneur-des-Anneaux-Elendil.png"
+                      className="img"
+                    />
+                    <div className="ivelany-7">
+                      <div className="ivelany-8">
+                        <div className="ivelany-9">
+                          <div className="ivelany-10">
+                            <div className="ivelany-11">Commande</div>
+                            <div className="ivelany-12">Stock</div>
+                          </div>
+                          <div className="ivelanStock">
+                            <input type="text" className="ivelany-13" />
+                            <div className="ivelany-14">100</div>
+                          </div>
+                        </div>
+                        <img src={Caddy} alt="Caddy" className="img-2"/>
+                      </div>
+                    </div>
+                    <div className="ivelany-15">Prix du produit: 20§</div>
+                  </div>
+                </div>
+              </div>
+              <div className="column0">
+                <div className="ivelany-4">
+                  <div className="ivelany-5">
+                    <div className="ivelany-6">Produit 3</div>
+                    <img
+                      loading="lazy"
+                      src="Casque-du-roi-du-Seigneur-des-Anneaux-Elendil.png"
+                      className="img"
+                    />
+                    <div className="ivelany-7">
+                      <div className="ivelany-8">
+                        <div className="ivelany-9">
+                          <div className="ivelany-10">
+                            <div className="ivelany-11">Commande</div>
+                            <div className="ivelany-12">Stock</div>
+                          </div>
+                          <div className="ivelanStock">
+                            <input type="text" className="ivelany-13" />
+                            <div className="ivelany-14">100</div>
+                          </div>
+                        </div>
+                        <img src={Caddy} alt="Caddy" className="img-2"/>
+                      </div>
+                    </div>
+                    <div className="ivelany-15">Prix du produit: 20§</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   );
 }
