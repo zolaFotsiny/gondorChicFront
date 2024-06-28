@@ -27,23 +27,30 @@ const responseInit = async (
   contentType = "application/json",
   navigation = null
 ) => {
-  await checkApiAccessibility();
+  try {
+    await checkApiAccessibility();
 
-  const content = {
-    method,
-    headers: {
-      "Content-Type": contentType,
-      Authorization: authorization || "",
-    },
-    body: body !== null ? body : undefined,
-  };
+    const content = {
+      method,
+      headers: {
+        "Content-Type": contentType,
+        Authorization: authorization || "",
+      },
+      body: body !== null ? body : undefined,
+    };
 
-  const response = await fetch(url, content);
-  if (navigation && response.status === 403) {
-    // Redirect to the signin screen
-    navigation.navigate("/");
+    const response = await fetch(url, content);
+    if (navigation && response.status === 403) {
+      // Redirect to the signin screen
+      navigation.navigate("/");
+    }
+    return response;
+  } catch (error) {
+    throw new Error(
+      "API call failed, please check your server connection",
+      error
+    );
   }
-  return response;
 };
 
 // Makes an API call to the specified URL with the given parameters
