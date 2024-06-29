@@ -28,7 +28,7 @@ export default function PageAcceuil() {
     <div className="body0">
       <div className="container">
         <div className="product-of-the-day">
-        <img src={"/img/"+produitsDuJour?.id+".png"} alt="Description de l'image" width={300} height={300}/>
+        <img src={`${process.env.PUBLIC_URL}/img/${produitsDuJour?.id}.png`}  alt="Description de l'image" width={300} height={300}/>
           <h1>GONDOR CHIC</h1>
         
           <p>Le produit du jour est {produitsDuJour?.libelle} ({produitsDuJour?.reference}) au prix de <strong>{produitsDuJour?.prix}€</strong></p>
