@@ -1,4 +1,4 @@
-body {
+.body0 {
   font-family: 'Arial', sans-serif;
   background-color: #f0f0f0;
   display: flex;
@@ -16,6 +16,7 @@ body {
 .product-of-the-day {
   background-color: white;
   padding: 40px;
+  width: 500px;
   flex: 1;
   display: flex;
   flex-direction: column;
