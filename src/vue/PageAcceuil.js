@@ -18,8 +18,10 @@ export default function PageAcceuil() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const data = await signIn(login.current.value, password.current.value);
+    console.log(data);
     if (data) {
       // redirect to "/pageAcceuilClient"
+      localStorage.setItem('user', data.pseudo);
       window.location.href = "/pageAcceuilClient";
     }
   };
