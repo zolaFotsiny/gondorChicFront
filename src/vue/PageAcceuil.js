@@ -28,11 +28,14 @@ export default function PageAcceuil() {
     <div className="body0">
       <div className="container">
         <div className="product-of-the-day">
-          <h1>{produitsDuJour?.reference}</h1>
-          <p>Le produit du jour est {produitsDuJour?.libelle}</p>
+        <img src={"/img/"+produitsDuJour?.id+".png"} alt="Description de l'image" width={300} height={300}/>
+          <h1>GONDOR CHIC</h1>
+        
+          <p>Le produit du jour est {produitsDuJour?.libelle} ({produitsDuJour?.reference}) au prix de <strong>{produitsDuJour?.prix}€</strong></p>
         </div>
         <div className="login-box">
           <form onSubmit={handleLogin}>
+              
             <div className="input-group">
               <label htmlFor="username">Pseudo</label>
               <input type="text" ref={login} id="username" name="username" />
