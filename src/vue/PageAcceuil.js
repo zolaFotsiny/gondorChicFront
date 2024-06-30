@@ -31,13 +31,14 @@ export default function PageAcceuil() {
       <div className="container">
         <div className="product-of-the-day">
         <img src={"/"+produitsDuJour?.id+".png"} alt="Description de l'image" width={300} height={300}/>
-          <h1>GONDOR CHIC</h1>
-        
-          <p>Le produit du jour est {produitsDuJour?.libelle} ({produitsDuJour?.reference}) au prix de <strong>{produitsDuJour?.prix}€</strong></p>
+          <h3>Le Produit du Jours est : </h3>
+          <p> {produitsDuJour?.libelle} ({produitsDuJour?.reference}) au prix de <strong>{produitsDuJour?.prix}€</strong></p>
         </div>
         <div className="login-box">
+          <h1>GONDOR CHIC</h1>
+        
           <form onSubmit={handleLogin}>
-              
+          <img className="transparent-image" src={"/2.jpg"} alt="Transparent Background Image" />
             <div className="input-group">
               <label htmlFor="username">Pseudo</label>
               <input type="text" ref={login} id="username" name="username" />

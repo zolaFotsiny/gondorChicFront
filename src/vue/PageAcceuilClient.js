@@ -10,58 +10,82 @@ import image3 from '../assets/images/3.png';
 export default function PageAcceuilClient() {
   const user = localStorage.getItem('user');
   const [produitsDuJour, setProduitsDuJour] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const headerStyle = {
+    backgroundColor: scrollPosition > 100 ? "#1e1e1d" : "white",
+    boxShadow:'0px 2px 1px grey',
+    padding: "10px 0",
+    // margin : "10px 0",
+    transition: "background-color 0.3s ease",
+  };
+
   useEffect(() => {
     rechercherProduitDuJour().then((data) => {
       console.log(data);
       setProduitsDuJour(data);
     });
+    const handleScroll = () => {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+
   }, []);
   return (
     <div className="div">
-      <div className="div-2">
-        <div className="div-3">Gondor Chic</div>
-        <div className="div-4">
-          <div className="div-5">Page</div>
-          <div className="div-8">Se deconnecter</div>
-        </div>
+     <div className="div-2" style={headerStyle}>
+      <div className="div-3" style={{color: scrollPosition > 100 ? "white" : "black", marginInline:"30px"}}>
+        Gondor Chic
       </div>
+      <div className="div-4">
+     
+        <div className="div-5">Page</div>
+        <div className="div-8">Se deconnecter</div>
+      </div>
+    </div>
       <div className="div-9">
-        <div className="div-10">Bonjour, { user }</div>
-        <div className="div-11">
-          Le produit du jour est {produitsDuJour?.libelle} (
-          {produitsDuJour?.reference}) au prix de {produitsDuJour?.prix}€.
-        </div>
-        <div className="div-12">
-          <div className="div-13">
-            <div className="column">
-              <div className="div-14">
-                <img className="img" src={"/10"+".png"} alt="Description de l'image" width={300} height={300}/>
-                <img
-                  className="img"
-                  src="Casque-du-roi-du-Seigneur-des-Anneaux-Elendil.png"
-                  alt="image du produit du jours"
-                />
-                <div className="div-15">
-                  <div className="div-16">
-                    <div className="div-17">
-                      <div className="div-18">Commande</div>
-                      <input type="text" className="div-19" />
-                    </div>
-                    <div className="div-20">
-                      <div className="div-21">Stock</div>
-                      <div className="div-22">100</div>
-                    </div>
-                    <img src={Caddy} alt="Caddy" className="img-2-0" />
+        <div className="container">
+          <div className="div-11">
+            
+            <img src={"/" + produitsDuJour?.id + ".png"} alt="Description de l'image" width={300} height={300} />
+            <div className="ivelany-7">
+              
+              <div className="ivelany-8">
+                <div className="ivelany-9">
+                  <div className="ivelany-10">
+                    <div className="ivelany-11">Commande</div>
+                    <div className="ivelany-12">Stock</div>
+                  </div>
+                  <div className="ivelanStock">
+                    <input type="text" className="ivelany-13" />
+                    <div className="ivelany-14">100</div>
                   </div>
                 </div>
+                <img src={Caddy} alt="Caddy" className="img-2" />
               </div>
             </div>
+          </div>
+          <div className="div-12">
+          <div className="div-10">Bonjour, {user} ! </div>
+            Le produit du jour est {produitsDuJour?.libelle} (
+            {produitsDuJour?.reference}) au prix de {produitsDuJour?.prix}€.
+<p>
+            Quantite en stock :
+            {produitsDuJour?.quantiteEnStock}</p>
           </div>
         </div>
       </div>
 
       <div className="partie2">
+
+        <h2 className="tilteproduct">Liste des produits</h2>
         <div className="ivelany">
+          
           <div className="ivelany-2">
             <div className="ivelany-3">
               <div className="column0">
