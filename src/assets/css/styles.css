@@ -491,7 +491,7 @@
   }
   .tilteproduct{
     text-align: center;
-    text-decoration: overline;
+    /*text-decoration: overline;*/
     text-decoration-color: rgb(60, 73, 99);
 
     text-underline-offset: 0.2em; /* Ajustement de l'offset */
@@ -645,3 +645,34 @@
     border: 2px solid #f0f0f0; /* Bordure blanche */
   }
   
+  .image-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .notification-bubble {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+  }

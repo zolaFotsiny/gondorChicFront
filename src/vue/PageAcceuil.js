@@ -11,17 +11,15 @@ export default function PageAcceuil() {
 
   useEffect(() => {
     rechercherProduitDuJour().then((data) => {
-      setProduitsDuJour(data);
+      setProduitsDuJour(data.leProduitCourant);
     });
   }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     const data = await signIn(login.current.value, password.current.value);
-    console.log(data);
     if (data) {
-      // redirect to "/pageAcceuilClient"
-      localStorage.setItem('user', data.pseudo);
+      localStorage.setItem('user', data.leClientIdentifie.pseudo);
       window.location.href = "/pageAcceuilClient";
     }
   };
@@ -38,7 +36,6 @@ export default function PageAcceuil() {
           <h1>GONDOR CHIC</h1>
         
           <form onSubmit={handleLogin}>
-          <img className="transparent-image" src={"/2.jpg"} alt="Transparent Background Image" />
             <div className="input-group">
               <label htmlFor="username">Pseudo</label>
               <input type="text" ref={login} id="username" name="username" />

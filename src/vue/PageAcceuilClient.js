@@ -11,6 +11,10 @@ export default function PageAcceuilClient() {
   const user = localStorage.getItem('user');
   const [produitsDuJour, setProduitsDuJour] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [clickCount, setClickCount] = useState(0);
+  const [clickCount1, setClickCount1] = useState(0);
+  const [clickCount2, setClickCount2] = useState(0);
+  const [clickCount3, setClickCount3] = useState(0);
 
   const headerStyle = {
     backgroundColor: scrollPosition > 100 ? "#1e1e1d" : "white",
@@ -22,8 +26,7 @@ export default function PageAcceuilClient() {
 
   useEffect(() => {
     rechercherProduitDuJour().then((data) => {
-      console.log(data);
-      setProduitsDuJour(data);
+      setProduitsDuJour(data.leProduitCourant);
     });
     const handleScroll = () => {
       const position = window.scrollY;
@@ -36,6 +39,23 @@ export default function PageAcceuilClient() {
     };
 
   }, []);
+
+  function handleClick() {
+    setClickCount(clickCount + 1);
+  }
+
+  function handleClick1() {
+    setClickCount1(clickCount1 + 1);
+  }
+
+  function handleClick2() {
+    setClickCount2(clickCount2 + 1);
+  }
+
+  function handleClick3() {
+    setClickCount3(clickCount3 + 1);
+  }
+
   return (
     <div className="div">
      <div className="div-2" style={headerStyle}>
@@ -63,10 +83,17 @@ export default function PageAcceuilClient() {
                   </div>
                   <div className="ivelanStock">
                     <input type="text" className="ivelany-13" />
-                    <div className="ivelany-14">100</div>
+                    <div className="ivelany-14">{produitsDuJour?.quantiteEnStock}</div>
                   </div>
                 </div>
-                <img src={Caddy} alt="Caddy" className="img-2" />
+                <div className="image-container">
+                  <button onClick={handleClick} className="image-button">
+                    <img src={Caddy} alt="Caddy" className="img-2" />
+                    {clickCount > 0 && (
+                      <div className="notification-bubble">{clickCount}</div>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -106,10 +133,17 @@ export default function PageAcceuilClient() {
                           </div>
                           <div className="ivelanStock">
                             <input type="text" className="ivelany-13" />
-                            <div className="ivelany-14">100</div>
+                            <div className="ivelany-14">87</div>
                           </div>
                         </div>
-                        <img src={Caddy} alt="Caddy" className="img-2" />
+                        <div className="image-container">
+                          <button onClick={handleClick1} className="image-button">
+                            <img src={Caddy} alt="Caddy" className="img-2" />
+                            {clickCount1 > 0 && (
+                              <div className="notification-bubble">{clickCount1}</div>
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <div className="ivelany-15">Prix du produit: 100€</div>
@@ -134,10 +168,17 @@ export default function PageAcceuilClient() {
                           </div>
                           <div className="ivelanStock">
                             <input type="text" className="ivelany-13" />
-                            <div className="ivelany-14">100</div>
+                            <div className="ivelany-14">62</div>
                           </div>
                         </div>
-                        <img src={Caddy} alt="Caddy" className="img-2" />
+                        <div className="image-container">
+                          <button onClick={handleClick2} className="image-button">
+                            <img src={Caddy} alt="Caddy" className="img-2" />
+                            {clickCount2 > 0 && (
+                              <div className="notification-bubble">{clickCount2}</div>
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <div className="ivelany-15">Prix du produit: 20€</div>
@@ -162,10 +203,17 @@ export default function PageAcceuilClient() {
                           </div>
                           <div className="ivelanStock">
                             <input type="text" className="ivelany-13" />
-                            <div className="ivelany-14">100</div>
+                            <div className="ivelany-14">99</div>
                           </div>
                         </div>
-                        <img src={Caddy} alt="Caddy" className="img-2" />
+                        <div className="image-container">
+                          <button onClick={handleClick3} className="image-button">
+                            <img src={Caddy} alt="Caddy" className="img-2" />
+                            {clickCount3 > 0 && (
+                              <div className="notification-bubble">{clickCount3}</div>
+                            )}
+                          </button>
+                        </div>
                       </div>
                     </div>
                     <div className="ivelany-15">Prix du produit: 50€</div>
